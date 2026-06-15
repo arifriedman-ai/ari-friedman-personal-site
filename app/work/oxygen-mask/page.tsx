@@ -48,7 +48,7 @@ const moreWork = [
     title: "Circuit Board Design for Unmanned Aerial Fire Suppression System",
     category: "Autonomous Drone Research - Project in Progress",
     image: "/featured/pcb.png",
-    href: "#",
+    href: "/work/drone",
   },
   {
     title: "Neuromuscular Interface for Inclusive Audio Production",

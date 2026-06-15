@@ -241,26 +241,46 @@ export default function Home() {
           </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {featuredWork.map((item) => (
-  <Link
-    key={item.title}
-    href={item.href}
-    className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur transition duration-300 hover:-translate-y-2 hover:border-cyan-300/40 hover:bg-white/[0.06]"
-  >
-    <div className="h-64 overflow-hidden border-b border-white/10 bg-gradient-to-br from-cyan-400/10 to-blue-500/10">
-      <img
-        src={item.image}
-        alt={item.title}
-        className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-      />
-    </div>
+{featuredWork.map((item) => {
+  const isExternal = item.href.startsWith("http");
 
-    <div className="p-6">
-      <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
-      <p className="mt-2 text-sm text-cyan-300/70">{item.category}</p>
-    </div>
-  </Link>
-))}
+  const CardContent = (
+    <>
+      <div className="h-64 overflow-hidden border-b border-white/10 bg-gradient-to-br from-cyan-400/10 to-blue-500/10">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+        />
+      </div>
+
+      <div className="p-6">
+        <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
+        <p className="mt-2 text-sm text-cyan-300/70">{item.category}</p>
+      </div>
+    </>
+  );
+
+  return isExternal ? (
+    <a
+      key={item.title}
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur transition duration-300 hover:-translate-y-2 hover:border-cyan-300/40 hover:bg-white/[0.06]"
+    >
+      {CardContent}
+    </a>
+  ) : (
+    <Link
+      key={item.title}
+      href={item.href}
+      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur transition duration-300 hover:-translate-y-2 hover:border-cyan-300/40 hover:bg-white/[0.06]"
+    >
+      {CardContent}
+    </Link>
+  );
+})}
           </div>
         </section>
 
