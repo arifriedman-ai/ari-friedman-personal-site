@@ -6,7 +6,7 @@ import Footer from "../../../components/Footer";
 const project = {
   title: "Longitudinal Analysis of Functional Recovery Post-Ankle Arthroplasty",
   category: "Medical Design",
-  image: "/work/ankle-arthroplasty/hnl.png",
+  image: "/work/ankle-arthroplasty/hnl.PNG",
   role: "Data Analysis Lead, Research Assistant",
   duration: "January 2026 - April 2026",
   tools: "Optitrack, Motive, Visual3D, MATLAB",
